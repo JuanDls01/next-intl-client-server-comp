@@ -1,0 +1,12 @@
+{
+  "server-component": {
+    "welcome": "Bienvenido"
+  },
+  "counter": {
+    "increment": "Incrementar",
+    "decrement": "Reducir"
+  },
+  "client-component": {
+    "title": "Este es un componente del lado del cliente"
+  }
+}
