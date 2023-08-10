@@ -14,9 +14,9 @@ const LocaleSwitcher = () => {
   };
 
   return (
-    <div>
+    <div className='flex items-center'>
       <p>Locale switcher:</p>
-      <ul>
+      <ul className='flex items-center gap-1.5'>
         {i18n.locales.map((locale) => {
           return (
             <li key={locale}>
