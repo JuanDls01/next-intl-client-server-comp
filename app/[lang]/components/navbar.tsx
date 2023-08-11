@@ -9,9 +9,7 @@ const links = [
 ];
 
 const Navbar = () => {
-  //   const [open, setOpen] = useState(false);
   const [clientWindowHeight, setClientWindowHeight] = useState<number>();
-  const [bgColor, setBgColor] = useState<string>();
 
   const handleScroll = () => {
     setClientWindowHeight(window.scrollY);
@@ -43,8 +41,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`'flex sticky top-0 z-30 w-full px-10 py-3 bg-white text-black shadow fixed-top transition duration-300 ease-linear ${
-        clientWindowHeight === 0 ? "bg-transparent" : "bg-black text-white"
+      className={`'flex sticky top-0 z-30 w-full px-10 py-3 shadow fixed-top transition duration-300 ease-linear ${
+        Number(clientWindowHeight) < 5
+          ? "bg-transparent text-black"
+          : "bg-black text-white"
       }`}
     >
       <div className='flex flex-row items-center justify-between'>
