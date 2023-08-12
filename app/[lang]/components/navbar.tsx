@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
+import { useState } from "react";
 import LocaleSwitcher from "./locale-switcher";
-import { useEffect, useState } from "react";
 
 const links = [
   { href: "/", title: "Home" },
@@ -14,41 +14,20 @@ const Navbar = () => {
   const handleScroll = () => {
     setClientWindowHeight(window.scrollY);
   };
-
-  useEffect(() => {
-    console.log("Entro al useEffect");
+  if (typeof window !== "undefined") {
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  });
-
-  //   const [backgroundTransparacy, setBackgroundTransparacy] = useState(0);
-  //   const [padding, setPadding] = useState(30);
-  //   const [boxShadow, setBoxShadow] = useState(0);
-
-  //   useEffect(() => {
-  //     console.log("window height", clientWindowHeight);
-
-  //     let backgroundTransparacyVar = Number(clientWindowHeight) / 600;
-
-  //     if (backgroundTransparacyVar < 1) {
-  //       let paddingVar = 30 - backgroundTransparacyVar * 20;
-  //       let boxShadowVar = backgroundTransparacyVar * 0.1;
-  //       setBackgroundTransparacy(backgroundTransparacyVar);
-  //       setPadding(paddingVar);
-  //       setBoxShadow(boxShadowVar);
-  //     }
-  //   }, [clientWindowHeight]);
+  }
 
   return (
     <nav
-      className={`'flex sticky top-0 z-30 w-full px-10 py-3 shadow fixed-top transition duration-300 ease-linear ${
+      className={`'flex fixed top-0 w-full shadow transition duration-150 ease-linear ${
         Number(clientWindowHeight) < 5
           ? "bg-transparent text-black"
           : "bg-black text-white"
       }`}
     >
-      <div className='flex flex-row items-center justify-between'>
-        <div className='flex items-center gap-4'>
+      <div className="container py-3 flex flex-row items-center justify-between">
+        <div className="flex items-center gap-4">
           {links.map((link) => (
             <Link key={link.href} href={link.href}>
               {link.title}
