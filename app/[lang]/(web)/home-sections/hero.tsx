@@ -1,24 +1,27 @@
+import me from "@/public/me.jpg";
+import Image, { ImageLoader } from "next/image";
+
+const imageLoader: ImageLoader = ({ src, width, quality }) => {
+  return `https://example.com/${src}?w=${width}&q=${quality || 75}`;
+};
+
 const HeroSection = () => {
   return (
-    <div className="container flex flex-wrap gap-[10px] h-[calc(100vh-48px)]">
-      <div className="h-[calc(50vh-10px)] bg-purple-400 aspect-auto rounded-full">
-        <p>1</p>
+    <div className="container h-screen py-20 flex flex-wrap gap-[10px]">
+      <div>
+        <h1 className="font-bold text-blue-400 text-xl">
+          Minimal Next Testing Project
+        </h1>
+        <p>Using Next, Tailwind and TypeScript</p>
       </div>
-      <div className="h-[calc(50vh-10px)] bg-yellow-300 aspect-auto rounded-full">
-        <p>2</p>
-      </div>
-      <div className="h-[calc(50vh-10px)] bg-green-500 aspect-auto rounded-full">
-        <p>3</p>
-      </div>
-      <div className="h-[calc(50vh-10px)] bg-red-500 aspect-auto rounded-full">
-        <p>4</p>
-      </div>
-      <div className="h-[calc(50vh-10px)] bg-green-500 aspect-auto rounded-full">
-        <p>5</p>
-      </div>
-      <div className="h-[calc(50vh-10px)] bg-green-500 aspect-auto rounded-full">
-        <p>6</p>
-      </div>
+      <Image
+        src={me}
+        alt="me"
+        width={300}
+        height={500}
+        className="w-1/4 h-fit"
+        quality={100}
+      />
     </div>
   );
 };

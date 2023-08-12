@@ -9,7 +9,7 @@ const links = [
 ];
 
 const Navbar = () => {
-  const [clientWindowHeight, setClientWindowHeight] = useState<number>();
+  const [clientWindowHeight, setClientWindowHeight] = useState<number>(0);
 
   const handleScroll = () => {
     setClientWindowHeight(window.scrollY);
